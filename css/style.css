@@ -1,0 +1,202 @@
+/*! --Imports--*/
+@import url('dlmenu.css');
+
+body{
+	overflow-y: scroll;
+	padding: 0;
+	margin: 0;
+	font-family: Arial;
+	font-size: 16px;
+	background-color: #F1F1F1;
+	height: 2000px;
+}
+
+/*! --Navigation Menu-- */
+#nav{
+	background-color: #222;
+	position: fixed;
+	width: 100%;
+	top: 0;
+}
+
+#nav-wrapper{
+	width: 960px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#nav ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+#nav ul li{
+	display: inline-block;
+}
+
+#nav ul li:hover{
+	background-color: #128BBA
+}
+
+#nav ul li a,visited{
+	display: block;
+	padding: 15px;
+	color: #CCC;
+	text-decoration: none;
+}
+
+#wrapper{
+	width: 960px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#content{
+	background-color: #FFF;
+	border: 2px solid #DDD;
+	padding: 20px;
+	margin: 20px 0 0 0;
+}
+
+
+
+/*! -- Header-- */
+.mainheader img{
+	width:100%;
+	height: auto;
+	margin: 2% auto;
+}
+
+/*! --Table--*/
+.bwTable {
+    background: #c3cebc;
+    margin-bottom: .5em;
+    border: 1px solid #995522;
+    border-collapse: collapse;
+}
+
+.bwTable tr, .bwTable td, .bwTable th {
+    font: normal 1em Helvetica, Arial, sans-serif;
+    text-align: left;
+    border: solid 1px #995522;
+    padding: 1px 3px;
+}
+
+.bwTable tr:nth-child(odd) {
+    background: #e1d8b9;
+}
+
+.bwTable th {
+    background: #193742;
+    color: #c3cebc;
+    border: solid 1px #51341a;
+}
+
+.bwTable td {
+    min-width: 100px;
+}
+
+/* form */
+
+#form {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3c6b92;
+}
+
+#form input[type=text] {
+    width: 300px;
+}
+
+#form td.button, #form td.label {
+    text-align: right;
+}
+
+#form td.label {
+    padding-right: 3px;
+}
+
+@media only screen and (min-width: 150px) and (max-width: 600px){
+
+body{
+	width: 100%;
+	font-size: 95%;
+}
+
+/*! --Navigation Menu-- */
+#nav{
+	height: 160px;
+}
+
+#nav-wrapper{
+	width: 960px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#nav ul{
+	padding-left: 0;
+}
+
+#nav ul li{
+	width: 100%;
+	text-align:center;
+}
+
+#nav ul li a:visited{
+	padding: 10px 25px;
+	height: 20px;
+	display: block;
+}
+
+#wrapper{
+	width: 960px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#content{
+	background-color: #FFF;
+	border: 2px solid #DDD;
+	padding: 20px;
+	margin: 20px 0 0 0;
+}
+
+
+
+/*! -- Header-- */
+.mainheader img{
+	width:100%;
+	height: auto;
+	margin: 2% auto;
+}
+
+/*! --Table--*/
+ul{
+	list-style:none;
+}
+
+ul label{
+	width:100px;
+	float:left;
+}
+
+#frmCadastre{
+	border:solid 1px;
+}
+
+#tblList{
+	width:100%;
+	border:solid 1px;
+	text-align:left;
+   	border-collapse:collapse; 
+}
+
+#tblList tbody tr{
+	border:solid 1px;
+	height:30px;
+}
+
+#tblList thead{
+	background:beige;
+}

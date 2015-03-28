@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+	<head>
+		<title>Laboratory Apparatus</title>
+		<link href ="css/style.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="js/script.js"></script>
+	</head>
+
+	<body>
+
+		<header class = mainheader>
+		<img class ="img" title="" src="img/123.jpg" alt=""> 
+		<div id="nav">
+				<div id="nav-wrapper">
+							<ul>
+								<li><a href="">Home</a></li>
+							</ul>
+				</div><!-- /nav-menuwrapper -->
+		</div><!-- nav end-->
+		</header>
+
+	<div id="content">
+
+    <h1> 
+        Add/Edit
+    </h1>
+    
+    <div id="form">
+        <form id="travelForm">
+            <table class="form">
+                <tr><td class="label"> Name </td><td> <input type="text" name="traveler" /> </td></tr>
+                <tr><td class="label"> Quantity </td><td> <input type="number" name="destination" min="1" max="20"/> </td></tr>
+                <tr><td class="label"> ID </td><td> <input type="number" name="transportation" min="1" max="999"/> </td></tr>
+                <tr><td colspan="2" class="button">
+                    <input id="formSubmit" type="button" name="goButton" value="Add" onClick="javascript:dbGo()" />
+                </td></tr>
+            </table>
+        <input id="inputAction" type="hidden" name="action" value="add" />
+        <input id="inputKey" type="hidden" name="key" value="0" />
+        </form>
+    </div>
+
+    <h1> 
+        Inventory
+    </h1>
+
+    <p id="rcp" class="message">
+        There are <span id="rowCount">_</span> rows in the table.
+        <input type="button" value="Empty" onClick="javascript:clearDB()" />
+    </p>
+
+    <div id="results">
+    <!-- results show here -->
+    </div>
+    
+	</div>	
+			
+
+	</body>
+
+</html>
