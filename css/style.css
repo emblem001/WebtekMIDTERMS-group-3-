@@ -1,5 +1,4 @@
-/*! --Imports--*/
-@import url('dlmenu.css');
+/*!--Style--*/
 
 body{
 	overflow-y: scroll;
@@ -8,64 +7,48 @@ body{
 	font-family: Arial;
 	font-size: 16px;
 	background-color: #F1F1F1;
-	height: 2000px;
+	height: auto;
 }
 
 /*! --Navigation Menu-- */
-#nav{
-	background-color: #222;
-	position: fixed;
-	width: 100%;
-	top: 0;
-}
-
-#nav-wrapper{
-	width: 960px;
-	margin: 0 auto;
-	text-align: left;
-}
-
-#nav ul{
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
-
-#nav ul li{
-	display: inline-block;
-}
-
-#nav ul li:hover{
-	background-color: #128BBA
-}
-
-#nav ul li a,visited{
-	display: block;
-	padding: 15px;
-	color: #CCC;
+a{
 	text-decoration: none;
 }
 
-#wrapper{
-	width: 960px;
+.mainheader nav{
+	background-color: #222;
+	height: 40px;
+	width: 100%;
+}
+
+.mainheader nav ul{
+	list-style-type: none;
 	margin: 0 auto;
-	text-align: left;
 }
 
-#content{
-	background-color: #FFF;
-	border: 2px solid #DDD;
-	padding: 20px;
-	margin: 20px 0 0 0;
+.mainheader nav ul li{
+	float: left;
+	display: inline;
 }
 
+.mainheader nav a:link, .mainheader nav a:visited{
+	color:#FFF;
+	display: inline-block;
+	padding:10px 25px;
+	height: 20px;
+}
 
+.mainheader nav a:hover, .mainheader nav a:active,
+.mainheader nav .active a:link, .mainheader nav .active a:visited{
+	background-color: #766C2E;
+	text-shadow: none;
+}
 
 /*! -- Header-- */
 .mainheader img{
 	width:100%;
-	height: auto;
-	margin: 2% auto;
+	line-height: 50px;
+	float: left;
 }
 
 /*! --Table--*/
@@ -116,6 +99,8 @@ body{
     padding-right: 3px;
 }
 
+
+/*! --MediaQueries-- */
 @media only screen and (min-width: 150px) and (max-width: 600px){
 
 body{
@@ -124,79 +109,31 @@ body{
 }
 
 /*! --Navigation Menu-- */
-#nav{
+
+.mainheader img{
+	width:100%;
+}
+	
+.mainheader nav{
 	height: 160px;
 }
 
-#nav-wrapper{
-	width: 960px;
-	margin: 0 auto;
-	text-align: left;
-}
-
-#nav ul{
+.mainheader nav ul{
 	padding-left: 0;
 }
 
-#nav ul li{
+.mainheader nav ul li{
 	width: 100%;
 	text-align:center;
 }
 
-#nav ul li a:visited{
+.mainheader nav a:link, .mainheader nav a:visited{
 	padding: 10px 25px;
 	height: 20px;
 	display: block;
 }
 
-#wrapper{
-	width: 960px;
-	margin: 0 auto;
-	text-align: left;
-}
-
-#content{
-	background-color: #FFF;
-	border: 2px solid #DDD;
-	padding: 20px;
-	margin: 20px 0 0 0;
-}
-
-
-
 /*! -- Header-- */
 .mainheader img{
-	width:100%;
-	height: auto;
-	margin: 2% auto;
-}
-
-/*! --Table--*/
-ul{
-	list-style:none;
-}
-
-ul label{
-	width:100px;
-	float:left;
-}
-
-#frmCadastre{
-	border:solid 1px;
-}
-
-#tblList{
-	width:100%;
-	border:solid 1px;
-	text-align:left;
-   	border-collapse:collapse; 
-}
-
-#tblList tbody tr{
-	border:solid 1px;
-	height:30px;
-}
-
-#tblList thead{
-	background:beige;
+	margin-top: 0px;
 }
