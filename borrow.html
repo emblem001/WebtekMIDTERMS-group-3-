@@ -4,7 +4,8 @@
         <meta charset="UTF-8" />
 		<title>Laboratory Apparatus</title>
 		<link href ="css/style.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
 	</head>
 
 	<body>
@@ -21,7 +22,48 @@
         <img class ="img" src="img/123.jpg" alt="">
         </header>
 
-	
+        <div id="wrapper">
+            <div id="content">
+                <h3>Borrowed Apparatus</h3>
+            </div>
+        </div>
+
+        <div id="wrapper">
+            <div id="content">
+                <h3>Add/Edit Borrowed Apparatus</h3>
+                    <form id="frmCadastre">
+                        <ul>
+                            <li>
+                                <label for="txtStudentName">Student Name:</label>
+                                <input type="text" id="txtStudentName"/>
+                            </li>
+                            <li>
+                                <label for="txtRoomNo">Room No:</label>
+                                <input type="text" id="txtRoomNo"/>
+                            </li>
+                            <li>
+                                <label for="txtApparatusName">Apparatus Name:</label>
+                                <input type="text" id="txtApparatusName"/>
+                            </li>
+                            <li>
+                                <label for="txtQty">Qty:</label>
+                                <input type="text" id="txtQty"/>
+                            </li>
+                            <li>
+                                <input type="submit" value="Save" id="btnSave"/>
+                            </li>
+                        </ul>
+                    </form>
+            </div>
+        </div>
+
+        <div id="wrapper">
+            <div id="content">
+                <h3>Database</h3>
+                <table id="tblList">
+                </table>
+            </div>
+        </div>
 
         <footer class="mainfooter">
             <p>Copyright &copy; 2015 Webtek Midterm project</a></p>

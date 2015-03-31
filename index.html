@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 	<head>
+        <meta charset="UTF-8" />
 		<title>Laboratory Apparatus</title>
 		<link href ="css/style.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="js/script.js"></script>
@@ -12,100 +13,40 @@
         <nav>
             <ul>
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="">Inventory</a></li>
-                <li><a href="">Borrow</a></li>
-                <li><a href="">Broken/Lost</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="borrow.html">Borrow</a></li>
+                <li><a href="brokenlost.html">Broken/Lost</a></li>
             </ul>
         </nav>
         <img class ="img" src="img/123.jpg" alt="">
-        </header>
+    </header>
 
-	<div id="content">
+	<div class="mainContent">
+            <div class="content">
+                <article class="inventory">
+                    <header>
+                        <h2>Inventory</h2>
+                    </header>  
+                    <h3>In the Inventory tab you can manage your inventory using these features:</h3>
+                    <li>List all Apparatus: view the list of your current apparatus and  newly added apparatus.</li>
+                    <li>Add new Apparatus: to add a apparatus on your inventory.</li>
+                    <li>Update Apparatus Record: to edit or update the status of your item in the inventory.</li>
+                    <li>Delete Apparatus Record: remove undesired apparatus on your inventory.</li>
+                </article>
+                
+                <article class="borrow">
+                    <header>
+                        <h2>Borrow</h2>
+                    </header>
+                </article>
 
-    <h1> 
-        Add/Edit
-    </h1>
-    
-    <div id="form">
-        <form id="travelForm">
-            <table class="form">
-                <tr><td class="label"> Name </td><td> <input type="text" name="traveler" /> </td></tr>
-                <tr><td class="label"> Quantity </td><td> <input type="number" name="destination" min="1" max="20"/> </td></tr>
-                <tr><td class="label"> ID </td><td> <input type="number" name="transportation" min="1" max="999"/> </td></tr>
-                <tr><td colspan="2" class="button">
-                    <input id="formSubmit" type="button" name="goButton" value="Add" onClick="javascript:dbGo()" />
-                </td></tr>
-            </table>
-        <input id="inputAction" type="hidden" name="action" value="add" />
-        <input id="inputKey" type="hidden" name="key" value="0" />
-        </form>
-    </div>
-
-    <h1> 
-        Inventory
-    </h1>
-
-    <p id="rcp" class="message">
-        There are <span id="rowCount">_</span> rows in the table.
-        <input type="button" value="Empty" onClick="javascript:clearDB()" />
-    </p>
-
-    <div id="results">
-    <!-- results show here -->
-    </div>
-
-    <!--Borrow-->
-        <div id="popupBoxOnePosition">
-            <div class="popupBoxWrapper">
-                <p style="text-align: right;"><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');"><img src="img/close.png" alt="" width="40" height="40"/></a></p>
-                <div class="popupBoxContent">
-                    <h3>Borrow</h3>
-                    
-                    <div id = "Room">
-                        <label>Room</label>
-                            <select>
-                                <option>A212</option>
-                                <option>A213</option>   
-                            </select>   
-                    </div>
-                    
-                    <div id = "GroupNo">
-                        <label>Group No.</label>
-                        <input type="text" placeholder="Group No">      
-                    </div>
-        
-                    <div id = "Student">
-                        <label>Student</label>
-                        <input type="text" placeholder="Name of Student">       
-                    </div>
-
-                    <div id = "Date & Time">
-                        <label>Date & Time</label>
-                        <input type="text" placeholder="Date & Time">   
-                    </div>
-
-                    <div id = "Add Apparatus">
-                        <label>Add Apparatus</label>
-                            <select>
-                                <option>test tube</option>
-                                <option>beaker</option> 
-                            </select>   
-                    </div>
-
-                    <div id = "Quantity">
-                        <label>QTY</label>
-                            <select>
-                                <option>1</option>
-                                <option>2</option>  
-                            </select>   
-                    </div>
-                    
-                    <button id = "Save">Save</button>
-                </div>
+                <article class="brokenlost">
+                    <header>
+                        <h2>Broken/Lost</h2>
+                    </header>
+                </article>
             </div>
-        </div>
-    
-	</div>	
+    </div>  
 
         <footer class="mainfooter">
             <p>Copyright &copy; 2015 Webtek Midterm project</a></p>
