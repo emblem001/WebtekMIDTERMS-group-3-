@@ -132,21 +132,39 @@
       </div>
     </form>
   </div>
+
+
+ <div id="form"> 
 <!-- ======================================================= -->
   <div id="deleteQuantity">
 <!-- ======================================================= -->
+	<div id="art1">
+	<div class="divbody">
     <h1>Delete a quantity record</h1>
+	<div class="form">
     <form id="deleteQuantityForm" class="pure-form pure-form-aligned">
-      <div class="pure-control-group">
-        <label for="delQuantitySelectQuantity">Select quantity: </label>
-        <select id="delQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select>
-      </div>
-      <div class="pure-controls">
-        <p><button type="button" name="commit">Delete</button>
-           <button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p>
-      </div>
-    </form>
+		<div class="pure-control-group">
+		  <table >
+			<tr><td class="label"><label for="delQuantitySelectQuantity">Select quantity: </label>
+				<select id="delQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select></td>
+			
+		  </div>
+		  
+		  <div class="pure-controls">
+		
+			<tr><td class="label"><p><button type="button" name="commit">Delete</button>
+				<button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p></td>
+			<tr>
+		  </table>
+		</div>
+    </form></div>
   </div>
+  </div>
+  </div>
+  </div>
+  
+  
+  
   </body>
   </article>
  </div> 
