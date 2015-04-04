@@ -1,81 +1,105 @@
 <!DOCTYPE html>
 
 	<head>
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
 		<title>Laboratory Apparatus</title>
-		<link href ="css/style.css" type="text/css" rel="stylesheet" />
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-        <script type="text/javascript" src="js/functions.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/styleswitcher.js"></script>
+		<link href ="css/style.css" type="text/css" rel="stylesheet" title="default" />
+		<link href ="css/style1.css" type="text/css" rel="alternate stylesheet" title="orange" />
+		
 	</head>
+	
 
 	<body>
 
     <header class="mainheader">
-        <nav>
+		
+		<div id="title">
+			<label id="label1">SLU</label>
+			<label id="label2">Laboratory</label>
+			<label id="label3">Apparatus</label>
+			<label id="label4">Inventory</label>
+			<label id="label5">System</label>
+		</div>
+		
+        <div id="nav">
+			<nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="quantitys.html">Inventory</a></li>
-                <li class="active"><a href="borrow.html">Borrow</a></li>
-                <li><a href="brokenlost.html">Broken/Lost</a></li>
+                <li id="home"><a class="white"href="index.html">Home</a></li>
+                <li id="inventory"><a class="black"href="quantitys.html">Inventory</a></li>
+                <li id="borrow"class="active"><a class="white"href="borrow.html">Borrow</a></li>
+                <li id="broken"><a class="black"href="brokenlost.html">Broken/Lost</a></li>
+				<li id="contact"><a class="white"href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-        <img class ="img" src="img/123.jpg" alt="">
-        </header>
+			</nav>
+		</div>
+		<img class ="img" src="img/123.jpg" alt="">
+		<img id="img5" src="img/logo.png" alt="">
+		<img id="img4" src="img/mole.png">
+    </header>
 
-        <div id="wrapper">
-            <div id="content">
+     <body>
+		<div class="mainContent">
+		<div id="content">
+			<div id="art1">
+			<div class="divbody">
                 <h3>Borrowed Apparatus</h3>
             </div>
-        </div>
+        </div></div>
+		</div>
 
-        <div id="wrapper">
-            <div id="content">
+        <div id="art2">
+				<div class="divbody">
                 <h3>Add/Edit Borrowed Apparatus</h3>
-                    <form id="frmCadastre">
-                        <ul>
-                            <li>
-                                <label for="txtStudentName">Student Name:</label>
-                                <input type="text" id="txtStudentName"/>
-                            </li>
-                            <li>
-                                <label for="txtRoomNo">Room No:</label>
-                                <input type="text" id="txtRoomNo"/>
-                            </li>
-                            <li>
-                                <label for="txtRoomNo">Instructor:</label>
-                                <input type="text" id="txtInstructor"/>
-                            </li>
-                            <li>
-                                <label for="txtApparatusName">Date & Time:</label>
-                                <input type="text" id="txtDateTime"/>
-                            </li>
-                            <li>
-                                <label for="txtApparatusName">Apparatus Name:</label>
-                                <input type="text" id="txtApparatusName"/>
-                            </li>
-                            <li>
-                                <label for="txtQty">Qty:</label>
-                                <input type="text" id="txtQty"/>
-                            </li>
-                            <li>
-                                <input type="submit" value="Save" id="btnSave"/>
-                            </li>
-                        </ul>
-                    </form>
-            </div>
+			<div id="form">
+			<form id="frmCadastre">
+				<table class="form">
+					<tr><td class="label" for="txtStudentName"> Student Name </td><td> <input type="text" id="txtStudentName" autofocus="autofocus"/> </td></tr>
+					<tr><td class="label" for="txtRoomNo"> Room No. </td><td> <input type="number" id="txtRoomNo" min="1" max="20"/> </td></tr>
+					<tr><td class="label" for="txtApparatusName"> Apparatus Name </td><td> <input type="text" id="txtApparatusName"/> </td></tr>
+					<tr><td class="label" for="txtQty"> Quantity </td><td> <input type="number" id="txtQty" min="1" max="999"/> </td></tr>
+					
+					<tr><td colspan="2" class="button">
+						<input type="submit" value="Save" id="btnSave"/>
+					</td></tr>
+				</table>
+			<input id="inputAction" type="hidden" name="action" value="add" />
+			<input id="inputKey" type="hidden" name="key" value="0" />
+			</form>
+            </div></div>
         </div>
+		</div>
 
-        <div id="wrapper">
-            <div id="content">
+        <div id="art3">
+		<div class="divbody">
                 <h3>Database</h3>
                 <table id="tblList">
                 </table>
-            </div>
+            </div></div>
         </div>
+		</div>
+		<img id="img2" src="img/comb.png">
+	</body>
 
         <footer class="mainfooter">
-            <p>Copyright &copy; 2015 Webtek Midterm project</a></p>
-        </footer>
+			<div>
+			<nav>
+            <ul>
+                <li ><a href="index.html">Home</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li class="active"><a href="borrow.html">Borrow</a></li>
+                <li><a href="brokenlost.html">Broken/Lost</a></li>
+				<li><a href="contact.html">Contact</a></li>
+            </ul>
+			</nav>
+			<form>
+				<input id="theme1"type="button" name="Theme1"value="Theme1" onclick="setActiveStyleSheet('default',3); return false;"></input>
+				<input id="theme2"type="button" name="Theme2"value="Theme2" onclick="setActiveStyleSheet('orange',3); return false;"></input>
+				</form>
+            <p>Copyright &copy; 2015 Webtek Midterm Project</a></p>
+			</div>
+    </footer>
 	</body>
 
 </html>
