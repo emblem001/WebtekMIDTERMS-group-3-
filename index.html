@@ -1,56 +1,98 @@
 <!DOCTYPE html>
 
 	<head>
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
 		<title>Laboratory Apparatus</title>
-		<link href ="css/style.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/styleswitcher.js"></script>
+		<link href ="css/style.css" type="text/css" rel="stylesheet" title="default" />
+		<link href ="css/style1.css" type="text/css" rel="alternate stylesheet" title="orange" />
+		
 	</head>
 
-	<body>
-
     <header class="mainheader">
-        <nav>
+		
+		<div id="title">
+			<label id="label1">SLU</label>
+			<label id="label2">Laboratory</label>
+			<label id="label3">Apparatus</label>
+			<label id="label4">Inventory</label>
+			<label id="label5">System</label>
+		</div>
+		
+        <div id="nav">
+			<nav>
             <ul>
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="quantitys.html">Inventory</a></li>
-                <li><a href="borrow.html">Borrow</a></li>
-                <li><a href="brokenlost.html">Broken/Lost</a></li>
+                <li id="home"class="active"><a class="white"href="index.html">Home</a></li>
+                <li id="inventory"><a class="black"href="quantitys.html">Inventory</a></li>
+                <li id="borrow"><a class="white"href="borrow.html">Borrow</a></li>
+                <li id="broken"><a class="black"href="brokenlost.html">Broken/Lost</a></li>
+				<li id="contact"><a class="white"href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-        <img class ="img" src="img/123.jpg" alt="">
+			</nav>
+		</div>
+		<img class ="img" src="img/123.jpg" alt="">
+		<img id="img5" src="img/logo.png" alt="">
+		<img id="img4" src="img/mole.png">
     </header>
-
+	
+	<body>
 	<div class="mainContent">
             <div class="content">
+				<div id="art1">
                 <article class="inventory">
-                    <header>
+					<div class="divbody">
                         <h2>Inventory</h2>
-                    </header>  
+                    
                     <h3>In the Inventory tab you can manage your inventory using these features:</h3>
                     <li>List all Apparatus: view the list of your current apparatus and  newly added apparatus.</li>
                     <li>Add new Apparatus: to add a apparatus on your inventory.</li>
                     <li>Update Apparatus Record: to edit or update the status of your item in the inventory.</li>
                     <li>Delete Apparatus Record: remove undesired apparatus on your inventory.</li>
-                </article>
-                
+					</div>
+				</article>
+                </div>
+				
+				<div id="art2">
                 <article class="borrow">
-                    <header>
+					<div class="divbody">
+                    
                         <h2>Borrow</h2>
-                    </header>
+                    
                 </article>
+				</div>
 
+				<div id="art3">
                 <article class="brokenlost">
-                    <header>
+				<div class="divbody">
+                    
                         <h2>Broken/Lost</h2>
-                    </header>
-                </article>
-            </div>
-    </div>  
-
-        <footer class="mainfooter">
-            <p>Copyright &copy; 2015 Webtek Midterm project</a></p>
-        </footer>
+                    
+                </article></div>
+				<div>
+				</div>
+    </div>       
 	</body>
+	
+	<footer class="mainfooter">
+			<div>
+				<img id="img1" src="img/comb.png">
+			<nav>
+            <ul>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="borrow.html">Borrow</a></li>
+                <li><a href="brokenlost.html">Broken/Lost</a></li>
+				<li><a href="contact.html">Contact</a></li>
+            </ul>
+			</nav>
+				<img id="img2" src="img/comb.png">
+				<form>
+				<input id="theme1"type="button" name="Theme1"value="Theme1" onclick="setActiveStyleSheet('default',3); return false;"></input>
+				<input id="theme2"type="button" name="Theme2"value="Theme2" onclick="setActiveStyleSheet('orange',3); return false;"></input>
+				</form>
+            <p>Copyright &copy; 2015 Webtek Midterm Project</a></p>
+			</div>
+        </footer>
 
 </html>
