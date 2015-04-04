@@ -9,11 +9,17 @@ body {
 table { 
   border-collapse:collapse;
   margin: 1em 0;
+
 }  
-table, td, th { 
+table,td, th { 
   border: 1px solid black;
   padding: 5px;
 }  
+
+#createQuantity td, #updateQuantity td, #deleteQuantity{
+	border: 0;
+}
+
 table th {
   background: aliceblue;
   color: #222;
@@ -22,7 +28,6 @@ table th {
 menu {
   width: 13em;
   text-align: center;
-  border: 1px solid black;
   padding: 8px;
   border-radius: 5px;
 }
@@ -210,6 +215,42 @@ body{
 	font-family:default, arial, serif;
 }
 
+body input[type="button"], body input[type="submit"], #theme1, #theme2{
+	position:relative;
+	border-radius:7px;
+	background: #e3e3e3;
+	padding: 5px 15px;
+	border:0;
+	text-shadow: 0 1px black;
+	background-image: -webkit-linear-gradient(top, #f5f5f5, #d3d3d3);
+	box-shadow: 0px 5px 0px #828282, 0px 8px 5px rgba(0,0,0,0.3);
+}
+
+body input[type="button"]:hover, body input[type="submit"]:hover, #theme1:hover, #theme2:hover{
+	top:3px;
+	background-color: #d3d3d3;
+	box-shadow:0px 2px 0px 0px#828282, 0px 5px 3px rgba(0,0,0,0.2);
+}
+
+body input:not([type='button']), body select{
+	width:200px;
+	height:35px;
+	font-size: 13px;
+	padding:2px;
+	margin:0px;
+	padding-left:10px;
+	border-radius:7px;
+	font-weight: bold;
+	text-transform: capitalize;
+	box-shadow: 3px 6px 15px inset;
+}
+
+body input:focus, body select:focus{
+	outline:none;
+	border: solid 2px;
+	border-color:red;
+	font-weight: bold;
+}
 
 
 body input[type="text"], body input[type="number"]{
@@ -232,22 +273,7 @@ body input[type="text"]:focus, body input[type="number"]:focus{
 	font-weight: bold;
 }
 
-body input[type="button"], body input[type="submit"]{
-	position:relative;
-	border-radius:7px;
-	background: #e3e3e3;
-	padding: 5px 15px;
-	border:0;
-	text-shadow: 0 1px black;
-	background-image: -webkit-linear-gradient(top, #f5f5f5, #d3d3d3);
-	box-shadow: 0px 5px 0px #828282, 0px 8px 5px rgba(0,0,0,0.3);
-}
 
-body input[type="button"]:hover, body input[type="submit"]:hover{
-	top:3px;
-	background-color: #d3d3d3;
-	box-shadow:0px 2px 0px 0px#828282, 0px 5px 3px rgba(0,0,0,0.2);
-}
 
 
 
