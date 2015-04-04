@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manage Quantitys</title>
+    <link rel="stylesheet" href="css/style.css"/> 
+    <script src="lib/browserShims.js"></script>
+    <script src="lib/util.js"></script>
+    <script src="src/model/errorTypes.js"></script>
+    <script src="src/model/Person.js"></script>
+    <script src="src/model/Quantity.js"></script>
+    <script src="src/model/Author.js"></script>
+    <script src="src/ctrl/app.js"></script>
+    <script src="src/view/app.js"></script>
+    <script src="src/view/quantitys.js"></script>
+    <script src="src/ctrl/quantitys.js"></script>
+    <script>
+      window.addEventListener("load", pl.ctrl.quantitys.manage.initialize);
+    </script>
+  </head>
+  <body>
+
+    <header class="mainheader">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="quantitys.html">Inventory</a></li>
+                <li><a href="borrow.html">Borrow</a></li>
+                <li><a href="brokenlost.html">Broken/Lost</a></li>
+            </ul>
+        </nav>
+        <img class ="img" src="img/123.jpg" alt="">
+    </header>
+<div class="content">
+    <article class="inventory">	
+<!-- ======================================================= -->
+  <div id="manageQuantitys">
+<!-- ======================================================= -->
+    <h1>Manage Inventory</h1>
+    <menu>
+      <li><button type="button" onclick="pl.view.quantitys.list.setupUserInterface()">List all quantities</button></li>
+      <li><button type="button" onclick="pl.view.quantitys.create.setupUserInterface()">Add a new quantity</button></li>
+      <li><button type="button" onclick="pl.view.quantitys.update.setupUserInterface()">Update an quantity</button></li>
+      <li><button type="button" onclick="pl.view.quantitys.destroy.setupUserInterface()">Delete an quantity</button></li>
+    </menu>
+    <footer><a href="index.html">Back to Main menu</a></footer>
+  </div>
+<!-- ======================================================= -->
+  <div id="listQuantitys">
+<!-- ======================================================= -->
+    <h1>List all Inventory</h1>
+    <table id="quantitys">
+      <thead><tr><th>ID</th><th>Name</th><th>Qua.No.</th><th>Specialized Type</th></thead>
+      <tbody></tbody>
+    </table>
+    <footer><button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to "Manage quantitys" menu</button></footer>
+  </div>
+<!-- ======================================================= -->
+  <div id="createQuantity">
+<!-- ======================================================= -->
+    <h1>Create a new inventory record</h1>
+    <form id="createQuantityForm" class="pure-form pure-form-aligned">
+      <div class="pure-control-group">
+        <label for="crePersonId">ID: </label><input id="crePersonId" name="personId" /> 
+      </div>
+      <div class="pure-control-group">
+        <label for="creName">Name: </label><input id="creName" name="name" />
+      </div>
+      <div class="pure-control-group">
+        <label for="creQuaNo">Quantity no.: </label><input id="creQuaNo" name="quaNo" />
+      </div>
+      <p class="pure-control-group">
+        <label for="creQuantityType">Special type: </label>
+        <select id="creQuantityType" name="subtype"></select>
+      </p>
+      <p class="pure-control-group MedicalLaboratory">
+        <label for="creDepartment">Managed department: </label><input id="creDepartment" name="department" />
+      </p>
+      <div class="pure-controls">
+        <p><button type="submit" name="commit">Save</button>
+           <button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p>
+      </div>
+    </form>
+  </div>
+<!-- ======================================================= -->
+  <div id="updateQuantity">
+<!-- ======================================================= -->
+    <h1>Update an inventory record</h1>
+    <form id="updateQuantityForm" class="pure-form pure-form-aligned">
+      <div class="pure-control-group">
+        <label for="updQuantitySelectQuantity">Select quantity: </label>
+        <select id="updQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select>
+      </div>
+      <div class="pure-control-group">
+        <label for="updPersonId">ID: </label><input id="updPersonId" name="personId" disabled="disabled" />
+      </div>
+      <div class="pure-control-group">
+        <label for="updName">Name: </label><input id="updName" name="name" />
+      </div>
+      <div class="pure-control-group">
+        <label for="updQuaNo">Quantity no.: </label><input id="updQuaNo" name="quaNo" />
+      </div>
+      <p class="pure-control-group">
+        <label for="updQuantityType">Special type: </label>
+        <select id="updQuantityType" name="subtype"></select>
+      </p>
+      <p class="pure-control-group MedicalLaboratory">
+        <label for="updDepartment">Managed department: </label><input id="updDepartment" name="department" />
+      </p>
+      <div class="pure-controls">
+        <p><button type="submit" name="commit">Save</button>
+           <button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p>
+      </div>
+    </form>
+  </div>
+<!-- ======================================================= -->
+  <div id="deleteQuantity">
+<!-- ======================================================= -->
+    <h1>Delete a quantity record</h1>
+    <form id="deleteQuantityForm" class="pure-form pure-form-aligned">
+      <div class="pure-control-group">
+        <label for="delQuantitySelectQuantity">Select quantity: </label>
+        <select id="delQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select>
+      </div>
+      <div class="pure-controls">
+        <p><button type="button" name="commit">Delete</button>
+           <button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p>
+      </div>
+    </form>
+  </div>
+  <footer class="mainfooter">
+            <p>Copyright &copy; 2015 Webtek Midterm project</a></p>
+  </footer>
+  </body>
+  </article>
+ </div> 
+</html>

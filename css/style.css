@@ -1,3 +1,48 @@
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity {
+  display: none;
+}
+
+body {
+  padding: 8px;
+}
+table { 
+  border-collapse:collapse;
+  margin: 1em 0;
+}  
+table, td, th { 
+  border: 1px solid black;
+  padding: 5px;
+}  
+table th {
+  background: aliceblue;
+  color: #222;
+}
+
+menu {
+  width: 13em;
+  text-align: center;
+  border: 1px solid black;
+  padding: 8px;
+  border-radius: 5px;
+}
+menu li {
+  list-style: none;
+  height: 1.5em;
+  margin: 2px auto;
+}
+menu li button {
+  width: 12.8em;
+}
+footer {
+  margin: 2em auto;
+}
+
+
+
 /*!--Style--*/
 
 body{
@@ -166,7 +211,7 @@ a{
 	height:40px;
 	float: left;
 	background-color: #222;
-	margin: 2% 0;
+	margin: 8% 0;
 }
 
 .mainfooter p{
@@ -174,6 +219,9 @@ a{
 	margin: 10px auto;
 	color: #FFF;
 }
+
+
+
 
 /*! --MediaQueries-- */
 @media only screen and (min-width: 150px) and (max-width: 600px){
