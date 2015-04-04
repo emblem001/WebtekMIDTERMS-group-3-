@@ -49,90 +49,166 @@
 		<img id="img4" src="img/mole.png">
     </header>
     
-    
+<body>
+<div class="mainContent">   
 <div class="content">
+
+<div id="art1">
+<div class="divbody">
+
+<div id="form">
     <article class="inventory">	
 <!-- ======================================================= -->
   <div id="manageQuantitys">
 <!-- ======================================================= -->
+	<div id="form">
     <h1>Manage Inventory</h1>
+	<div class="form">
     <menu>
       <li><button type="button" onclick="pl.view.quantitys.list.setupUserInterface()">List all quantities</button></li>
       <li><button type="button" onclick="pl.view.quantitys.create.setupUserInterface()">Add a new quantity</button></li>
       <li><button type="button" onclick="pl.view.quantitys.update.setupUserInterface()">Update an quantity</button></li>
       <li><button type="button" onclick="pl.view.quantitys.destroy.setupUserInterface()">Delete an quantity</button></li>
-    </menu>
+    </menu></div>
     <footer><a href="index.html">Back to Main menu</a></footer>
+  </div></div>
   </div>
+  </div>
+	</div>
+  
+  
+  
+  <div id="form"> 
 <!-- ======================================================= -->
   <div id="listQuantitys">
 <!-- ======================================================= -->
+
     <h1>List all Inventory</h1>
     <table id="quantitys">
       <thead><tr><th>ID</th><th>Name</th><th>Qua.No.</th><th>Specialized Type</th></thead>
       <tbody></tbody>
     </table>
     <footer><button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to "Manage quantitys" menu</button></footer>
+  
   </div>
+  </div>
+  
+ <div id="form">  
 <!-- ======================================================= -->
   <div id="createQuantity">
 <!-- ======================================================= -->
+	<div id="art1">
+	<div class="divbody">
     <h1>Create a new inventory record</h1>
+	<div class="form">
     <form id="createQuantityForm" class="pure-form pure-form-aligned">
+	
       <div class="pure-control-group">
-        <label for="crePersonId">ID: </label><input id="crePersonId" name="personId" /> 
+	  <table >
+        <tr><td class="label"><label for="crePersonId">ID: </label></td>
+			<td class="label"><input id="crePersonId" name="personId" /> </td>
       </div>
+	  
+	  
       <div class="pure-control-group">
-        <label for="creName">Name: </label><input id="creName" name="name" />
+        <tr><td class="label"><label for="creName">Name: </label></td>
+			<td class="label"><input id="creName" name="name" /></td>
       </div>
+	  
+	  
       <div class="pure-control-group">
-        <label for="creQuaNo">Quantity no.: </label><input id="creQuaNo" name="quaNo" />
+        <tr><td class="label"><label for="creQuaNo">Quantity no.: </label></td>
+			<td class="label"><input id="creQuaNo" name="quaNo" /></td>
       </div>
+	  
+	  
       <p class="pure-control-group">
-        <label for="creQuantityType">Special type: </label>
-        <select id="creQuantityType" name="subtype"></select>
+        <tr><td class="label"><label for="creQuantityType">Special type: </label></td>
+			<td class="label"><select id="creQuantityType" name="subtype"></select></td>
       </p>
+	  
+	  
       <p class="pure-control-group MedicalLaboratory">
-        <label for="creDepartment">Managed department: </label><input id="creDepartment" name="department" />
+        <tr><td class="label"><label for="creDepartment">Managed department: </label></td>
+			<td class="label"><input id="creDepartment" name="department" /></td>
       </p>
+	  
+	  
       <div class="pure-controls">
-        <p><button type="submit" name="commit">Save</button>
-           <button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p>
-      </div>
-    </form>
+        <tr><td class="label"><p>
+			<button type="submit" name="commit">Save</button>
+            <button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p></td>
+			<td class="label">
+      </tr>
+	  </table>
+	  </div>
+    </form></div>
   </div>
+  </div>
+  </div>
+  </div>
+  
+  
+ <div id="form">  
 <!-- ======================================================= -->
   <div id="updateQuantity">
 <!-- ======================================================= -->
-    <h1>Update an inventory record</h1>
+    <div id="art1">
+	<div class="divbody">
+	<h1>Update an inventory record</h1>
+	<div class="form">
     <form id="updateQuantityForm" class="pure-form pure-form-aligned">
-      <div class="pure-control-group">
-        <label for="updQuantitySelectQuantity">Select quantity: </label>
-        <select id="updQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select>
+      
+	  <div class="pure-control-group">
+	  <table >
+        <tr><td class="label"><label for="updQuantitySelectQuantity">Select quantity: </label></td>
+        <td class="label"><select id="updQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select></td>
       </div>
+	  
+	  
       <div class="pure-control-group">
-        <label for="updPersonId">ID: </label><input id="updPersonId" name="personId" disabled="disabled" />
+        <tr><td class="label"><label for="updPersonId">ID: </label></td>
+			<td class="label"><input id="updPersonId" name="personId" disabled="disabled" /></td>
       </div>
+	  
+	  
       <div class="pure-control-group">
-        <label for="updName">Name: </label><input id="updName" name="name" />
+        <tr><td class="label"><label for="updName">Name: </label></td>
+			<td class="label"><input id="updName" name="name" /></td>
       </div>
+	  
+	  
       <div class="pure-control-group">
-        <label for="updQuaNo">Quantity no.: </label><input id="updQuaNo" name="quaNo" />
+        <tr><td class="label"><label for="updQuaNo">Quantity no.: </label></td>
+			<td class="label"><input id="updQuaNo" name="quaNo" /></td>
       </div>
+	  
+	  
       <p class="pure-control-group">
-        <label for="updQuantityType">Special type: </label>
-        <select id="updQuantityType" name="subtype"></select>
+        <tr><td class="label"><label for="updQuantityType">Special type: </label></td>
+			<td class="label"><select id="updQuantityType" name="subtype"></select></td>
       </p>
+	  
+	  
       <p class="pure-control-group MedicalLaboratory">
-        <label for="updDepartment">Managed department: </label><input id="updDepartment" name="department" />
+        <tr><td class="label"><label for="updDepartment">Managed department: </label></td>
+			<td class="label"><input id="updDepartment" name="department" /></td>
       </p>
+	  
+	  
       <div class="pure-controls">
-        <p><button type="submit" name="commit">Save</button>
-           <button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p>
-      </div>
-    </form>
+        <tr><td class="label">
+			<p><button type="submit" name="commit">Save</button>
+			<button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></p></td>
+			<td class="label">
+      </tr>
+	  </table>
+	  </div>
+    </form></div>
   </div>
-
+  </div>
+  </div>
+  </div>
 
  <div id="form"> 
 <!-- ======================================================= -->
