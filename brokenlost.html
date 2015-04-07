@@ -3,7 +3,8 @@
 	<head>
         <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
 		<title>Laboratory Apparatus</title>
-		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/function.js"></script>
 		<script type="text/javascript" src="js/styleswitcher.js"></script>
 		<link href ="css/style.css" type="text/css" rel="stylesheet" title="default" />
 		<link href ="css/style1.css" type="text/css" rel="alternate stylesheet" title="orange" />
@@ -41,18 +42,42 @@
 	<div class="mainContent">
             <div class="content">
 				<div id="art1">
-				
-                </div>
+			<div class="divbody">
+                <h3>Broken/Lost Apparatus</h3>
+            </div>
+		</div></div>
+        </div>
 				
 				<div id="art2">
-                
-				</div>
+						<div class="divbody">
+						<h3>Add/Edit Broken/Lost Apparatus</h3>
+			<div id="form">
+			<form id="frmCadastre">
+				<table class="form">
+					<tr><td class="label" for="txtStudentName"> Student Name </td><td> <input type="text" id="txtStudentName" autofocus="autofocus"/> </td></tr>
+					<tr><td class="label" for="txtApparatusName"> Apparatus Name </td><td> <input type="text" id="txtApparatusName"/> </td></tr>
+					<tr><td class="label" for="txtQty"> Quantity </td><td> <input type="number" id="txtQty" min="1" max="999"/> </td></tr>
+					
+					<tr><td colspan="2" class="button">
+						<input type="submit" value="Save" id="btnSave"/>
+					</td></tr>
+				</table>
+			<input id="inputAction" type="hidden" name="action" value="add" />
+			<input id="inputKey" type="hidden" name="key" value="0" />
+			</form>
+            </div></div>
+        </div>				
+		</div>
 
 				<div id="art3">
-				
-				<div>
-            </div>
-    </div>       
+				<div class="divbody">
+					<h3>Database</h3>
+					<table id="tblList">
+					</table>
+            </div></div>
+        </div>				
+		<div>
+		<img id="img2" src="img/comb.png">   
 	</body>
 
 	
