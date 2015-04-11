@@ -1,5 +1,5 @@
 /*qty*/
-div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity {
+div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity, div#borrowQuantity , #hidden{  /*mhac*/
   display: none;
 }
 
@@ -11,8 +11,13 @@ table {
   margin: 1em 0;
 
 }  
+
+tbody{
+	border: 0;
+}
+
 table,td, th { 
-  border: 1px solid black;
+  border:0;
   padding: 5px;
 }  
 
@@ -44,10 +49,15 @@ footer {
 }
 
 /****/
+#updQuaNoAdd, #updQuaNoSub{
+	width:50px;
+	background: #7bcbe4;
+}
+
 .mainheader{
 	height: 300px;
 	background: url(../img/header1.jpg);
-	margin-top:53px;
+	/* margin-top:53px; */
 	background-repeat:no-repeat;
 	width:100%;
 }
@@ -412,7 +422,7 @@ body input[type="text"]:focus, body input[type="number"]:focus{
 
 .divbody{
 	background:rgba(255,255,255,0);
-	padding:20px;
+	padding:10px;
 	margin:0;
 	
 }
