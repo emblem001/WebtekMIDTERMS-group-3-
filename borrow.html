@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 
-	<head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
-		<title>Laboratory Apparatus</title>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-		<script type="text/javascript" src="js/functions.js"></script>
-		<script type="text/javascript" src="js/styleswitcher.js"></script>
-		<link href ="css/style.css" type="text/css" rel="stylesheet" title="default" />
-		<link href ="css/style1.css" type="text/css" rel="alternate stylesheet" title="orange" />
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Laboratory Apparatus</title>
+    <link href ="css/style.css" type="text/css" rel="stylesheet" title="default" />
+    <link href ="css/style1.css" type="text/css" rel="alternate stylesheet" title="orange" />
+    <script type="text/javascript" src="js/styleswitcher.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 		
-	</head>
+    <script src="lib/browserShims.js"></script>
+    <script src="lib/util.js"></script>
+    <script src="src/model/errorTypes.js"></script>
+    <script src="src/model/Person.js"></script>
+    <script src="src/model/Quantity.js"></script>
+    <script src="src/model/Author.js"></script>
+    <script src="src/ctrl/app.js"></script>
+    <script src="src/view/app.js"></script>
+    <script src="src/view/quantitys.js"></script>
+    <script src="src/ctrl/quantitys.js"></script>
+    <script>
+      window.addEventListener("load", pl.ctrl.quantitys.manage.initialize);
+    </script>
+  </head>
 	
 
 	<body>
@@ -41,46 +53,126 @@
     </header>
 
      <body>
-		<div class="mainContent">
-		<div id="content">
-			<div id="art1">
-			<div class="divbody">
-                <h3>Borrowed Apparatus</h3>
-            </div>
-        </div></div>
-		</div>
+<div class="mainContent">   
+<div class="content">
 
-        <div id="art2">
-				<div class="divbody">
-                <h3>Add/Edit Borrowed Apparatus</h3>
-			<div id="form">
-			<form id="frmCadastre">
-				<table class="form">
-					<tr><td class="label" for="txtStudentName"> Student Name </td><td> <input type="text" id="txtStudentName" autofocus="autofocus"/> </td></tr>
-					<tr><td class="label" for="txtRoomNo"> Room No. </td><td> <input type="number" id="txtRoomNo" min="1" max="20"/> </td></tr>
-					<tr><td class="label" for="txtApparatusName"> Apparatus Name </td><td> <input type="text" id="txtApparatusName"/> </td></tr>
-					<tr><td class="label" for="txtQty"> Quantity </td><td> <input type="number" id="txtQty" min="1" max="999"/> </td></tr>
-					
-					<tr><td colspan="2" class="button">
-						<input type="submit" value="Save" id="btnSave"/>
-					</td></tr>
-				</table>
-			<input id="inputAction" type="hidden" name="action" value="add" />
-			<input id="inputKey" type="hidden" name="key" value="0" />
-			</form>
-            </div></div>
-        </div>
-		</div>
+<div id="art">
+<div class="divbody">
 
-        <div id="art3">
-		<div class="divbody">
-                <h3>Database</h3>
-                <table id="tblList">
-                </table>
-            </div></div>
-        </div>
-		</div>
-		<img id="img2" src="img/comb.png">
+<div id="form">
+    <article class="inventory1">	
+<!-- ======================================================= -->
+  <div id="manageQuantitys">
+<!-- ======================================================= -->
+	<div id="form">
+    <h1>Manage Borrowed Apparatus</h1>
+	<div class="form">
+    <menu>
+	  
+	  <li><button type="button" onclick="pl.view.quantitys.list.setupUserInterface()">List of Apparatus</button></li>
+      <li><button type="button" onclick="pl.view.quantitys.borrow.setupUserInterface()">Borrow</button></li>
+    </menu></div>
+
+  </div></div>
+  </div>
+  </div>
+	</div>
+  
+	<div class="divbody">
+  <div id="form"> 
+<!-- ======================================================= -->
+  <div id="listQuantitys">
+<!-- ======================================================= -->
+
+    <h1>Laboratory Apparatus Inventory</h1>
+    <table id="quantitys">
+      <thead><tr><th>ID</th><th>Apparatus Name</th><th>Qty. Available</th><th>Qty. Borrowed</th></thead><!--mhac-->
+      <tbody></tbody>
+    </table>
+    <footer><button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></footer>
+  
+  </div>
+  </div>
+  </div>
+  
+  
+   <div id="form">  
+<!-- ======================================================= -->
+  <div id="borrowQuantity">
+<!-- ======================================================= -->
+    <div id="art1">
+	<div class="divbody">
+	<h1>Borrow from inventory record</h1>
+	<div class="form">
+    <form id="borrowQuantityForm" class="pure-form pure-form-aligned">
+      
+	  <div class="pure-control-group">
+	  <table id="quantitys">
+        <tr><td class="label"><label for="addStudentId">Student ID: </label></td>
+			<td class="label"><input id="addStudentId" name="studentname" /></td>
+			<td><input type="button" id="k"onclick="myFunction()" value="Add to list"></input></td>
+      </div>
+	  
+	  <div class="pure-control-group">	
+        <tr><td class="label"><label for="updStudentId">Choose ID: </label></td>
+			<td class="label"><select id="updStudentId" name="studentname" required /></td>
+      </div>
+	  
+	  <div class="pure-control-group">
+        <tr><td class="label"><label for="updQuantitySelectQuantity">Select Apparatus: </label></td>
+        <td class="label"><select id="updQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select></td>
+      </div>
+	  
+	  
+      <div class="pure-control-group" id="hidden">
+        <label for="updPersonId">ID: </label>
+		<input id="updPersonId" name="personId" disabled="disabled" />
+      </div>
+	  
+	  
+      <div class="pure-control-group" id="hidden">
+        <label for="updName">Name: </label>
+		<input id="updName" name="name" />
+      </div>
+	  
+	  
+      <div class="pure-control-group">
+        <tr><td class="label"><label for="updQuaNo">Available: </label></td>
+			<td class="label"><input id="updQuaNo" name="quaNo" readonly /></td>
+      </div>
+	  
+	  <div class="pure-control-group">
+        <tr><td class="label"><label for="updQuaNoBorrow">Borrow: </label></td>
+			<td class="label"><input id="updQuaNoBorrow" name="quaNoBorrow" /></td>
+      </div>
+	  
+	  
+      <p class="pure-control-group" id="hidden">
+        <label for="updQuantityType">Type: </label>
+		<select id="updQuantityType" name="subtype"></select>
+      </p>
+	  
+	  
+      <p class="pure-control-group" id="hidden">
+        <label for="updDepartment">Borrowed: </label>
+		<input id="updDepartment" name="department" />
+      </p>
+	  
+	  
+      <div class="pure-controls">
+        <tr><td class="label">
+			<p><button type="submit" name="commit">Save</button>
+			<button type="button" onclick="location.href='borrow.html'">Back to menu</button></p></td>
+			<td class="label">
+      </tr>
+	  </table>
+	  </div>
+    </form></div>
+  </div>
+  </div>
+  </div>
+  </div>
+
 	</body>
 
         <footer class="mainfooter">
@@ -88,7 +180,7 @@
 			<nav>
             <ul>
                 <li ><a href="index.html">Home</a></li>
-                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="quantitys.html">Inventory</a></li>
                 <li class="active"><a href="borrow.html">Borrow</a></li>
                 <li><a href="brokenlost.html">Broken/Lost</a></li>
 				<li><a href="contact.html">Contact</a></li>
