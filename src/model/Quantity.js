@@ -1,7 +1,7 @@
 QuantityTypeEL = Object.defineProperties( {}, {
     MEDICALLABORATORY: { value: 1, writable: false},
     MAX: { value: 1, writable: false},
-    names: {value:["MedicalLaboratory"], writable: false}
+    names: {value:["Apparatus"], writable: false}
 });
 function Quantity( slots) {
   // set the default values for the parameter-free default constructor
@@ -41,7 +41,8 @@ Quantity.checkQuaNo = function (n) {
   if (isNaN( n)) {
     return new MandatoryValueConstraintViolation(
         "A value for the quantity number is required!");
-  } else if (!util.isPositiveInteger( n)) {
+  }
+  else if (!util.isPositiveInteger( n)) {
     return new RangeConstraintViolation("The quantity number must be a positive integer!");
   } else if (false) {  // TODO
     return new UniquenessConstraintViolation(
@@ -162,6 +163,16 @@ Quantity.prototype.convertObj2Row = function () {
  * @param {{personId: string, name: string, quaNo: number}} slots - A record of parameters.
  */
 Quantity.create = function (slots) {
+/*
+  var total= document.forms["createQuantityForm"]["quaNo"].value;
+  var a= document.forms["createQuantityForm"]["quaNo"].value;
+  var available= total;
+  
+	  qua.value(available);
+	  */
+	  
+
+
   var qua = null;
   try {
 	  qua = new Quantity( slots);
@@ -187,15 +198,44 @@ Quantity.update = function (slots) {
       updatedProperties = [],
       // save the current state of book
       objectBeforeUpdate = util.cloneObject( qua);
+	  
+	  //add
+	    var add= document.getElementById('updQuaNoAdd').value;
+	  //sub
+	    var sub= document.getElementById('updQuaNoSub').value;
+		
+		
+		
+	  if(sub =="" || sub==null){
+		
+	    var available= document.forms["updateQuantityForm"]["quaNo"].value;
+	    var inventoryA=  available*1 + add*1+"";
+	  
+		  qua.setQuaNo(inventoryA);
+		  updatedProperties.push("quaNo");
+	  }
+	  else if(add =="" || add==null){
+		var availableB= document.forms["updateQuantityForm"]["quaNo"].value;
+		var inventoryB=  availableB - sub;
+		  
+		  qua.setQuaNo(inventoryB);
+		  updatedProperties.push("quaNo");
+		  
+	  }else{
+		alert("Adding and subtracting at the same time is not permitted!");
+	  }
+
+	  
+	  
   try {
     if ("name" in slots && qua.name !== slots.name) {
     	qua.setName( slots.name);
         updatedProperties.push("name");
     }
-    if ("quaNo" in slots && qua.quaNo !== slots.quaNo) {
+    /* if ("quaNo" in slots && qua.quaNo !== slots.quaNo) {
       qua.setQuaNo( slots.quaNo);
       updatedProperties.push("quaNo");
-    }
+    } */
     if ("subtype" in slots && "subtype" in qua && qua.subtype !== slots.subtype ||
     		"subtype" in slots && !("subtype" in qua)) {
       qua.setSubtype( slots.subtype);
@@ -301,4 +341,33 @@ Quantity.saveAll = function () {
   } catch (e) {
     alert("Error when writing to Local Storage\n" + e);
   }
+};
+
+
+/**
+ * Update an existing Quantity row
+ * @method 
+ * @static
+ * @param {{personId: string, name: string, quaNo: number}} slots - A record of parameters.
+ */
+Quantity.borrow = function (slots) { //mhac
+
+  var borrowed= document.getElementById('updDepartment').value;
+  var borrow= document.getElementById('updQuaNoBorrow').value;
+  var available= document.forms["borrowQuantityForm"]["quaNo"].value;
+  var inventory=  available-borrow;
+  
+  var qua = Quantity.instances[slots.personId],
+      noConstraintViolated = true,
+      ending = "",
+      updatedProperties = [],
+      
+      objectBeforeUpdate = util.cloneObject( qua);
+	  
+	  qua.setQuaNo(inventory);
+	  qua.setDepartment(borrow*1 + borrowed*1 +"");
+	  updatedProperties.push("document");
+	  
+	
+
 };
