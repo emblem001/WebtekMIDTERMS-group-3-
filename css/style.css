@@ -2,7 +2,7 @@
    Custom styles
    ========================================================================== */
 
-div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity {
+div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity, div#borrowQuantity , #hidden{  /*mhac*/
   display: none;
 }
 
@@ -12,7 +12,18 @@ body {
 table { 
   border-collapse:collapse;
   margin: 1em 0;
+  background: #766C2E;
+  border:0;
 }  
+
+#quantitys{
+ border: 0;
+}
+
+tbody{
+	
+}
+
 table, td, th { 
   border: 1px solid black;
   padding: 5px;
@@ -22,7 +33,7 @@ table th {
   color: #222;
 }
 
-#createQuantity td, #updateQuantity td, #deleteQuantity{
+#createQuantity td, #updateQuantity td, #deleteQuantity, #borrowQuantity td{ /*mhac*/
 	border: 0;
 }
 
@@ -45,7 +56,30 @@ footer {
   margin: 2em auto;
 }
 
+#updQuaNoAdd, #updQuaNoSub{
+	width:50px;
+}
+
+.label1{
+	width: 50px;
+}
+
 /*!--Style--*/
+
+.mainheader img{
+	display:none;
+}
+
+menu{
+	background: #766C2E;
+}
+
+#manageQuantitys{
+	background: #766C2E;
+	width: 30%;
+	padding: 50px;
+
+}
 
 body{
 	overflow-y: scroll;
@@ -55,6 +89,10 @@ body{
 	font-size: 16px;
 	background-color: #222;
 	height: auto;
+	background: url("../img/123.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment: fixed;
 }
 body input[type="button"], body input[type="submit"], #theme1, #theme2{
 	position:relative;
@@ -114,11 +152,12 @@ body input[type="text"]:focus, body input[type="number"]:focus{
 
 
 .divbody{
-	background:rgba(255,255,255,0);
+	background: #766C2E;
 	padding:5px;
 	margin:0;
-	
-	
+	min-width: 480px;
+	max-width:600px;
+
 }
 
 #title{
@@ -155,6 +194,7 @@ border-color: gray;
 
 #form{
 	width: auto;
+	/* background: #766C2E; */
 }
 
 .form{
@@ -215,12 +255,13 @@ a{
 	color: #FFF;
 	margin-left: 2%;
 	margin-right: 2%;
+	padding-top: 30px;
 }
 
 .inventory{
-	background-color: #766C2E;
+	background-color: #766C2E; 
 	border-radius: 5px;
-	padding:3% 5%;
+	padding: 20px;
 	margin-top:2%;
 }
 
@@ -233,8 +274,6 @@ a{
 .borrow{
 	background-color:#766C2E;
 	border-radius: 5px;
-	padding:3% 5%;
-	margin-top:2%;
 }
 
 .borrow label {
@@ -331,7 +370,6 @@ a{
 }
 
 
-
 #img1, #img2, #img3, #img4, #img5{
 	display:none;
 }
@@ -343,6 +381,11 @@ a{
 	background-size: 100%;
 	border-radius: 5px;
 	padding:20px;
+	
+}
+
+#art2{
+	background: #766C2E;
 }
 
 /*! --MediaQueries-- */
@@ -366,7 +409,7 @@ body{
 }
 	
 .mainheader nav{
-	height: 160px;
+	height: 205px;
 }
 
 .mainheader nav ul{
@@ -456,7 +499,7 @@ body{
 }
 	
 .mainheader nav{
-	height: 160px;
+	height: 205px;
 }
 
 .mainheader nav ul{
