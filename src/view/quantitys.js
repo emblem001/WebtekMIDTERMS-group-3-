@@ -1,3 +1,17 @@
+function myFunction(){
+	var stdid= document.getElementById("addStudentId").value;
+	if(stdid != ""){
+	var x=document.getElementById("updStudentId");
+	var option= document.createElement("option");
+		option.text= stdid;
+		x.add(option);
+		}
+		else{
+			alert("Student ID cannot be blank!");
+		}
+}
+
+
 pl.view.quantitys.handleSubtypeSelectChangeEvent = function (e) {
   var formEl = e.currentTarget.form,
       subtypeIndexStr = formEl.subtype.value,  // the array index of QuantityTypeEL.names
@@ -43,6 +57,7 @@ pl.view.quantitys.manage = {
     document.getElementById("createQuantity").style.display = "none";
     document.getElementById("updateQuantity").style.display = "none";
     document.getElementById("deleteQuantity").style.display = "none";
+	document.getElementById("borrowQuantity").style.display = "none";
   }
 };
 /**********************************************
@@ -60,13 +75,14 @@ pl.view.quantitys.list = {
       row.insertCell(-1).textContent = quantity.personId;
       row.insertCell(-1).textContent = quantity.name;
       row.insertCell(-1).textContent = quantity.quaNo;
-      if (quantity.subtype) {
+	  row.insertCell(-1).textContent = quantity.department; //mhac
+      /* if (quantity.subtype) {
         switch (quantity.subtype) {
         case QuantityTypeEL.MEDICALLABORATORY:
           row.insertCell(-1).textContent = "MedicalLaboratory of "+ quantity.department + " department";
           break;
         }
-      }
+      } */
     }
     document.getElementById("manageQuantitys").style.display = "none";
     document.getElementById("listQuantitys").style.display = "block";
@@ -93,8 +109,9 @@ pl.view.quantitys.create = {
     });
     formEl.quaNo.addEventListener("input", function () { 
       formEl.quaNo.setCustomValidity( 
-          Quantity.checkQuaNo( formEl.quaNo.value).message);
+          Quantity.checkDepartment( formEl.quaNo.value).message);
     });
+	
     // set up the quantity type selection list
     util.fillSelectWithOptions( typeSelectEl, QuantityTypeEL.names);
     typeSelectEl.addEventListener("change", 
@@ -133,8 +150,11 @@ pl.view.quantitys.create = {
     document.getElementById("manageQuantitys").style.display = "none";
     document.getElementById("createQuantity").style.display = "block";
     formEl.reset();
+	
+	
   }
 };
+
 /**********************************************
  * Use case Update Quantity
 **********************************************/
@@ -260,3 +280,103 @@ pl.view.quantitys.destroy = {
     document.getElementById("deleteQuantity").style.display = "block";
   }
 };
+
+
+/**********************************************
+ * Use case Borrow Quantity
+**********************************************/
+pl.view.quantitys.borrow = { //mhac
+  /**
+   * initialize the borrow quantitys UI/form
+   */
+  setupUserInterface: function () {
+    var formEl = document.forms['borrowQuantityForm'],
+        submitButton = formEl.commit,
+        typeSelectEl = formEl.subtype,
+        quantitySelectEl = formEl.selectQuantity;
+    // set up the quantity selection list
+    util.fillAssocListWidgetSelectWithOptions( quantitySelectEl, Quantity.instances, 
+        "personId", {displayProp:"name"});
+    quantitySelectEl.addEventListener("change", 
+        pl.view.quantitys.borrow.handleQuantitySelectChangeEvent);
+    // validate constraints on new user input
+    formEl.name.addEventListener("input", function () { 
+      formEl.name.setCustomValidity(
+          Person.checkName( formEl.name.value).message);
+      });
+    formEl.quaNo.addEventListener("input", function () { 
+      formEl.quaNo.setCustomValidity( 
+          Quantity.checkQuaNo( formEl.quaNo.value).message);
+      });
+    // set up the quantity type selection list
+    util.fillSelectWithOptions( typeSelectEl, QuantityTypeEL.names);
+    typeSelectEl.addEventListener("change", 
+    		pl.view.quantitys.handleSubtypeSelectChangeEvent);
+    // set up the submit button
+    submitButton.addEventListener("click", function (e) {
+      var formEl = document.forms['borrowQuantityForm'],
+          typeStr = formEl.subtype.value;
+      var slots = {
+          personId: formEl.personId.value, 
+          name: formEl.name.value,
+          quaNo: parseInt( formEl.quaNo.value)
+      };
+      if (typeStr) {
+        slots.subtype = parseInt( typeStr) + 1;
+        switch (slots.subtype) {
+        case QuantityTypeEL.MEDICALLABORATORY:
+          slots.department = formEl.department.value;
+          formEl.department.setCustomValidity( 
+              Quantity.checkDepartment( formEl.department.value).message);
+          break;
+        }
+      }
+      // check all relevant input fields and provide error messages 
+      // in case of constraint violations
+      formEl.name.setCustomValidity( Person.checkName( slots.name).message);
+      formEl.quaNo.setCustomValidity( 
+          Quantity.checkQuaNo( formEl.quaNo.value).message);
+      // save the input data only if all of the form fields are valid
+      if (formEl.checkValidity()) {
+        Quantity.borrow( slots);
+        formEl.reset();
+      }
+    });
+    document.getElementById("manageQuantitys").style.display = "none";
+    document.getElementById("borrowQuantity").style.display = "block";
+    formEl.reset();
+  },
+  /**
+   * handle quantity selection events
+   * on selection, populate the form with the data of the selected quantity
+   */
+  handleQuantitySelectChangeEvent: function () {
+    var formEl = document.forms['borrowQuantityForm'];
+    var key="", qua=null;
+    key = formEl.selectQuantity.value;
+    if (key !== "") {
+      qua = Quantity.instances[key];
+      formEl.personId.value = qua.personId;
+      formEl.name.value = qua.name;
+      formEl.quaNo.value = qua.quaNo;
+      if (qua.subtype) {
+        formEl.subtype.selectedIndex = parseInt( qua.subtype);
+        pl.view.app.displaySegmentFields( formEl, QuantityTypeEL.names, qua.subtype);
+        switch (qua.subtype) {
+        case QuantityTypeEL.MEDICALLABORATORY:
+          formEl.department.value = qua.department;
+          break;
+        }
+      } else {  // no qua.subtype
+        formEl.subtype.value = "";
+        formEl.department.value = ""; 
+        pl.view.app.undisplayAllSegmentFields( formEl, QuantityTypeEL.names);
+      }
+    } else {
+      formEl.personId.value = "";
+      formEl.name.value = "";
+      formEl.quaNo.value = "";
+    }
+  }
+};
+
