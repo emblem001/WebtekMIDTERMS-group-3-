@@ -155,7 +155,8 @@ body input[type="text"]:focus, body input[type="number"]:focus{
 	background: #766C2E;
 	padding:5px;
 	margin:0;
-
+	border-radius: 5px;
+	opacity: .9;
 }
 
 #title{
@@ -261,6 +262,7 @@ a{
 	border-radius: 5px;
 	padding: 20px;
 	margin-top:2%;
+	opacity: .9;
 }
 
 .inventory img{
@@ -274,6 +276,7 @@ a{
 	border-radius: 5px;
 	padding: 20px;
 	margin-top: 2%;
+	opacity: .9;
 }
 
 .borrow label {
@@ -301,6 +304,7 @@ a{
 	border-radius: 5px;
 	padding: 20px;
 	margin-top:2%;
+	opacity: .9;
 }
 
 /*! -- Footer -- */
