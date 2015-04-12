@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 
-	<head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
-		<title>Laboratory Apparatus</title>
-		<script type="text/javascript" src="js/script.js"></script>
-		<script type="text/javascript" src="js/styleswitcher.js"></script>
-		<link href ="css/style.css" type="text/css" rel="stylesheet" title="default" />
-		<link href ="css/style1.css" type="text/css" rel="alternate stylesheet" title="orange" />
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Laboratory Apparatus</title>
+    <link href ="css/style.css" type="text/css" rel="stylesheet" title="default" />
+    <link href ="css/style1.css" type="text/css" rel="alternate stylesheet" title="orange" />
+    <script type="text/javascript" src="js/styleswitcher.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 		
-	</head>
+    <script src="lib/browserShims.js"></script>
+    <script src="lib/util.js"></script>
+    <script src="src/model/errorTypes.js"></script>
+    <script src="src/model/Person.js"></script>
+    <script src="src/model/Quantity.js"></script>
+    <script src="src/model/Author.js"></script>
+    <script src="src/ctrl/app.js"></script>
+    <script src="src/view/app.js"></script>
+    <script src="src/view/quantitys.js"></script>
+    <script src="src/ctrl/quantitys.js"></script>
+    <script>
+      window.addEventListener("load", pl.ctrl.quantitys.manage.initialize);
+    </script>
+  </head>
+	
 
 	<body>
 
@@ -37,43 +51,141 @@
 		<img id="img5" src="img/logo.png" alt="">
 		<img id="img4" src="img/mole.png">
     </header>
-	<body>
-	<div class="mainContent">
-            <div class="content">
-				<div id="art1">
-				
-                </div>
-				
-				<div id="art2">
-                
-				</div>
 
-				<div id="art3">
-				
-				<div>
-            </div>
-    </div>       
+     <body>
+<div class="mainContent">   
+<div class="content">
+
+<div id="art">
+<div class="divbody">
+
+<div id="form">
+    <article class="inventory1">	
+<!-- ======================================================= -->
+  <div id="manageQuantitys">
+<!-- ======================================================= -->
+	<div id="form">
+    <h1>Manage Broken/Lost Apparatus</h1>
+	<div class="form">
+    <menu>
+	  
+	  <li><button type="button" onclick="pl.view.quantitys.list.setupUserInterface()">List of Apparatus</button></li>
+      <li><button type="button" onclick="pl.view.quantitys.borrow.setupUserInterface()">Broken/Lost</button></li>
+    </menu></div>
+
+  </div></div>
+  </div>
+  </div>
+	</div>
+  
+	<div class="divbody">
+  <div id="form"> 
+<!-- ======================================================= -->
+  <div id="listQuantitys">
+<!-- ======================================================= -->
+
+    <h1>Laboratory Apparatus Inventory</h1>
+    <table id="quantitys">
+      <thead><tr><th>Student ID</th><th>Apparatus Name</th><th>Qty Available</th><th>Qty. Borrowed</th><th>Qty of Broken/Lost</th></thead>
+      <tbody></tbody>
+    </table>
+    <footer><button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></footer>
+  
+  </div>
+  </div>
+  </div>
+  
+  
+   <div id="form">  
+<!-- ======================================================= -->
+  <div id="borrowQuantity">
+<!-- ======================================================= -->
+    <div id="art1">
+	<div class="divbody">
+	<h1>Broken/Lost from inventory record</h1>
+	<div class="form">
+    <form id="borrowQuantityForm" class="pure-form pure-form-aligned">
+      
+	    <div class="pure-control-group">
+	      <table id="quantitys">
+        <tr><td class="label"><label for="addStudentId">Student ID: </label></td>
+			  <td class="label"><input id="addStudentId" name="studentname" /></td>
+			  <td><input type="button" id="k"onclick="myFunction()" value="Add to list"></input></td>
+      </div>
+	  
+  	  <div class="pure-control-group">	
+        <tr><td class="label"><label for="updStudentId">Choose ID: </label></td>
+  			<td class="label"><select id="updStudentId" name="studentname" required /></td>
+      </div>
+	  
+	    <div class="pure-control-group">
+        <tr><td class="label"><label for="updQuantitySelectQuantity">Select Apparatus: </label></td>
+        <td class="label"><select id="updQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select></td>
+      </div>
+	  
+      <div class="pure-control-group" id="hidden">
+        <label for="updPersonId">ID: </label>
+		    <input id="updPersonId" name="personId" disabled="disabled" />
+      </div>
+	  
+      <div class="pure-control-group" id="hidden">
+        <label for="updName">Name: </label>
+		    <input id="updName" name="name" />
+      </div>
+	  
+      <div class="pure-control-group" id="hidden">
+        <tr><td class="label"><label for="updQuaNo" id="hidden">Available: </label></td>
+			  <td class="label"><input id="hidden" name="quaNo" readonly /></td>
+      </div>
+	  
+	    <div class="pure-control-group">
+        <tr><td class="label"><label for="updQuaNoBorrow">Qty of Broken/Lost </label></td>
+			  <td class="label"><input id="updQuaNoBorrow" name="quaNoBorrow" /></td>
+      </div>
+	  
+      <p class="pure-control-group" id="hidden">
+        <label for="updQuantityType">Type: </label>
+		    <select id="updQuantityType" name="subtype"></select>
+      </p>
+	  
+      <p class="pure-control-group" id="hidden">
+        <label for="updDepartment">Borrowed: </label>
+		    <input id="updDepartment" name="department" />
+      </p>
+	  
+      <div class="pure-controls">
+        <tr><td class="label">
+			  <p><button type="submit" name="commit">Save</button>
+			     <button type="button" onclick="location.href='brokenlost.html'">Back to menu</button></p></td>
+			  <td class="label">
+        </tr>
+	     </table>
+	  </div>
+    </form></div>
+  </div>
+  </div>
+  </div>
+
 	</body>
-	
-	<footer class="mainfooter">
+
+        <footer class="mainfooter">
 			<div>
-				<img id="img1" src="img/comb.png">
 			<nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li ><a href="index.html">Home</a></li>
                 <li><a href="quantitys.html">Inventory</a></li>
                 <li><a href="borrow.html">Borrow</a></li>
                 <li class="active"><a href="brokenlost.html">Broken/Lost</a></li>
 				<li><a href="contact.html">About</a></li>
             </ul>
 			</nav>
-				<img id="img2" src="img/comb.png">
-				<form>
+			<form>
 				<input id="theme1"type="button" name="Theme1"value="Theme1" onclick="setActiveStyleSheet('default',3); return false;"></input>
 				<input id="theme2"type="button" name="Theme2"value="Theme2" onclick="setActiveStyleSheet('orange',3); return false;"></input>
 				</form>
             <p>Copyright &copy; 2015 Webtek Midterm Project</a></p>
 			</div>
-        </footer>
+    </footer>
+	</body>
 
 </html>
