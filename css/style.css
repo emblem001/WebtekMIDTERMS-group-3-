@@ -386,8 +386,9 @@ a{
 	border-radius: 5px;
 	padding:20px;
 	opacity: .9;
-	
 }
+
+
 
 
 /*! --MediaQueries-- */
@@ -475,7 +476,6 @@ body{
 /*! -- Header-- */
 .mainheader img{
 	margin-top: 0px;
-}
 }
 
 
