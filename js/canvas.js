@@ -1,4 +1,4 @@
-
+//code by: Selencio, John Paul
 function myCanvas() {
     var c = document.getElementById("myCanvas");
     var ctx1 = c.getContext("2d");
