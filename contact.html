@@ -3,6 +3,7 @@
 	<head>
         <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
 		<title>Laboratory Apparatus</title>
+		<script type="text/javascript" src="js/canvas.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript" src="js/styleswitcher.js"></script>
 		<link href ="css/style.css" type="text/css" rel="stylesheet" title="default" />
@@ -41,15 +42,33 @@
 	<div class="mainContent">
             <div class="content">
 				<div id="art1">
-				
+					
+					<img id="i1" src="img\a\a.png" style="display:none"/>
+					<img id="i2" src="img\a\b.png" style="display:none"/>
+					<img id="i3" src="img\a\c.png" style="display:none"/>
+					<img id="i4" src="img\a\d.png" style="display:none"/>
+					<img id="i5" src="img\a\e.png" style="display:none"/>
+					<img id="i6" src="img\a\f.png" style="display:none"/>
+					<canvas id="myCanvas" width="1270" height="220" >
+					</canvas>
                 </div>
 				
 				<div id="art2">
-                
+					<p>This Website is a requirement for the subject WEBTEK under the supervision of Ms. Maria Clemente Concepcion</p>
+					<p>It was created for the purpose of storing laboratory apparatuses in an inventory</p>
+					<p>It was conducted by 6 students from SLU Bacguio City</p>
+					<p>Features:</p>
+					<li>adding of apparatus on the inventory</li>
+					<li>updating of apparatus on the inventory</li>
+					<li>deleting of apparatus on the inventory</li>
+					<li>listing of borrowed apparatus</li>
+					<li>listing of broken/lost apparatus</li>
 				</div>
+				
 
 				<div id="art3">
-				
+					<input type="button" value="The Creators" onclick="myCanvas()"/>
+					
 				<div>
             </div>
     </div>       
