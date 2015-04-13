@@ -1,8 +1,9 @@
 /* ==========================================================================
    Custom styles
+   author: Rae Aquino/Maria Chin
    ========================================================================== */
 
-div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity, div#borrowQuantity , #hidden{  /*mhac*/
+div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity, div#borrowQuantity , div#returnQuantity ,#hidden{  /*mhac*/
   display: none;
 }
 
@@ -33,7 +34,7 @@ table th {
   color: #222;
 }
 
-#createQuantity td, #updateQuantity td, #deleteQuantity, #borrowQuantity td{ /*mhac*/
+#createQuantity td, #updateQuantity td, #deleteQuantity, #borrowQuantity td, #returnQuantity td{ /*mhac*/
 	border: 0;
 }
 

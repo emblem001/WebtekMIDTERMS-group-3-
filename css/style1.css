@@ -1,5 +1,11 @@
 /*qty*/
-div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity, div#borrowQuantity , #hidden{  /*mhac*/
+/* ==========================================================================
+   Custom styles
+   author: Rae Aquino/Maria Chin
+   ========================================================================== */
+
+
+div#listQuantitys, div#createQuantity, div#updateQuantity, div#deleteQuantity, div#borrowQuantity , #returnQuantity, #hidden{  /*mhac*/
   display: none;
 }
 

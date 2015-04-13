@@ -199,6 +199,7 @@ Quantity.update = function (slots) {
       // save the current state of book
       objectBeforeUpdate = util.cloneObject( qua);
 	  
+	  /*Maria Chin*/
 	  //add
 	    var add= document.getElementById('updQuaNoAdd').value;
 	  //sub
@@ -224,7 +225,7 @@ Quantity.update = function (slots) {
 	  }else{
 		alert("Adding and subtracting at the same time is not permitted!");
 	  }
-
+	/*end Maria Chin*/
 	  
 	  
   try {
@@ -350,7 +351,7 @@ Quantity.saveAll = function () {
  * @static
  * @param {{personId: string, name: string, quaNo: number}} slots - A record of parameters.
  */
-Quantity.borrow = function (slots) { //mhac
+Quantity.borrow = function (slots) { //Maria Chin
 
   var borrowed= document.getElementById('updDepartment').value;
   var borrow= document.getElementById('updQuaNoBorrow').value;
@@ -370,4 +371,36 @@ Quantity.borrow = function (slots) { //mhac
 	  
 	
 
-};
+};//end Chin
+
+/**
+ * Update an existing Quantity row
+ * @method 
+ * @static
+ * @param {{personId: string, name: string, quaNo: number}} slots - A record of parameters.
+ */
+Quantity.return1 = function (slots) { //Maria Chin
+
+  var borrowed= document.getElementById('updDepartment').value;
+  var borrow= document.getElementById('updQuaNoBorrow').value;
+  var return1= document.getElementById('updQuaNoReturn').value;
+  var available= document.forms["returnQuantityForm"]["quaNo"].value;
+  var newborrowed = borrowed +"jhl";
+  
+  var qua = Quantity.instances[slots.personId],
+      noConstraintViolated = true,
+      ending = "",
+      updatedProperties = [],
+      
+      objectBeforeUpdate = util.cloneObject( qua);
+	  
+	  //return to inventory
+	  var inventory=  available*1 + return1*1;
+	  
+	  qua.setQuaNo(inventory);
+	  /* qua.setDepartment(); */
+	  updatedProperties.push("document");
+	  
+	
+
+};//end Chin

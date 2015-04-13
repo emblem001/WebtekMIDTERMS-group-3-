@@ -26,7 +26,7 @@
 
 	<body>
 
-    <header class="mainheader">
+    <header class="mainheader"><!--Rae Aquino/Maria Chin-->
 		
 		<div id="title">
 			<label id="label1">SLU</label>
@@ -52,7 +52,7 @@
 		<img id="img4" src="img/mole.png">
     </header>
 
-     <body>
+     <body><!--Rae Aquino/Maria Chin-->
 <div class="mainContent">   
 <div class="content">
 
@@ -71,6 +71,7 @@
 	  
 	  <li><button type="button" onclick="pl.view.quantitys.list.setupUserInterface()">List of Apparatus</button></li>
       <li><button type="button" onclick="pl.view.quantitys.borrow.setupUserInterface()">Borrow</button></li>
+	  <li><button type="button" onclick="pl.view.quantitys.return1.setupUserInterface()">Return</button></li>
     </menu></div>
 
   </div></div>
@@ -86,7 +87,7 @@
 
     <h1>Laboratory Apparatus Inventory</h1>
     <table id="quantitys">
-      <thead><tr><th>ID</th><th>Apparatus Name</th><th>Qty Available</th><th>Qty. Borrowed</th><th>Qty of Broken/Lost</th></thead>
+      <thead><tr><th>ID</th><th>Apparatus Name</th><th>Qty Available</th><th>Qty. Borrowed</th></thead>
       <tbody></tbody>
     </table>
     <footer><button type="button" onclick="pl.view.quantitys.manage.refreshUI()">Back to menu</button></footer>
@@ -142,11 +143,7 @@
         <tr><td class="label"><label for="updQuaNoBorrow">Borrow: </label></td>
 			  <td class="label"><input id="updQuaNoBorrow" name="quaNoBorrow" /></td>
       </div>
-	  
-	  <div class="pure-control-group">
-        <tr><td class="label"><label for="updQuaNoBorrow">Borrow: </label></td>
-			  <td class="label"><input id="updQuaNoBorrow" name="quaNoBorrow" /></td>
-      </div>
+
 	  
       <p class="pure-control-group" id="hidden">
         <label for="updQuantityType">Type: </label>
@@ -170,10 +167,98 @@
   </div>
   </div>
   </div>
+  
+  
+  
+    <div id="form">  
+<!-- ======================================================= -->
+  <div id="returnQuantity">
+<!-- ======================================================= -->
+    <div id="art1">
+	<div class="divbody">
+	<h1>Return Apparatus</h1>
+	<div class="form">
+    <form id="returnQuantityForm" class="pure-form pure-form-aligned">
+      
+	    <div class="pure-control-group" id="hidden">
+	     
+			<label for="addStudentId">Student ID: </label>
+			<input id="addStudentId" name="studentname" />
+			<input type="button" id="k"onclick="myFunction()" value="Add to list"></input>
+      </div>
+	  
+  	  <div class="pure-control-group">
+		 <table id="quantitys">
+        <tr><td class="label"><label for="updStudentId">Choose ID: </label></td>
+  			<td class="label"><select id="updStudentId" name="studentname"  /></td>
+      </div>
+	  
+	    <div class="pure-control-group">
+        <tr><td class="label"><label for="updQuantitySelectQuantity">Select Apparatus: </label></td>
+        <td class="label"><select id="updQuantitySelectQuantity" name="selectQuantity"><option value=""> --- </option></select></td>
+      </div>
+	  
+      <div class="pure-control-group" id="hidden">
+        <label for="updPersonId">ID: </label>
+		    <input id="updPersonId" name="personId" disabled="disabled" />
+      </div>
+	  
+      <div class="pure-control-group" id="hidden">
+        <label for="updName">Name: </label>
+		    <input id="updName" name="name" />
+      </div>
+	  
+      <div class="pure-control-group">
+        <tr><td class="label"><label for="updQuaNo">Available: </label></td>
+			  <td class="label"><input id="updQuaNo" name="quaNo" readonly /></td>
+      </div>
+	  
+	    <div class="pure-control-group" id="hidden">
+			<label for="updQuaNoBorrow">Borrow: </label>
+			  <input id="updQuaNoBorrow" name="quaNoBorrow" />
+      </div>
+	  
+	  <p class="pure-control-group">
+        <tr><td class="label"><label for="updDepartment">Borrowed: </label></td>
+		    <td class="label"><input id="updDepartment" name="department" /></td>
+      </p>
+	  
+	  <div class="pure-control-group">
+        <tr><td class="label"><label for="updQuaNoReturn">Return: </label></td>
+			  <td class="label"><input id="updQuaNoReturn" name="quaNoReturn" /></td>
+      </div>
+	  
+	  
+      <p class="pure-control-group" id="hidden">
+        <label for="updQuantityType">Type: </label>
+		    <select id="updQuantityType" name="subtype"></select>
+      </p>
+	  
+      
+	  
+      <div class="pure-controls">
+        <tr><td class="label">
+			  <p><button type="submit" name="commit">Save</button>
+			     <button type="button" onclick="location.href='borrow.html'">Back to menu</button></p></td>
+			  <td class="label">
+        </tr>
+	     </table>
+	  </div>
+    </form></div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  </div>
 
 	</body>
 
-        <footer class="mainfooter">
+        <footer class="mainfooter"><!--Rae Aquino/Maria Chin-->
 			<div>
 			<nav>
             <ul>
